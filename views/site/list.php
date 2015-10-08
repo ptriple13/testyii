@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 [
                     'attribute' => 'MssID',
-                    'label' => 'MmID'
+                    'label' => 'MssID'
                 ],
                 [
                    'attribute' => 'Title',
@@ -50,5 +50,27 @@ $this->params['breadcrumbs'][] = $this->title;
         ]);
         ?>
     </div>
+    <div>
+        <?php
+        //echo GridView::widget([
+        echo DataTables::widget([
+            'dataProvider' => $rPoID,
+            'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '0'],
+            'summary' => '',
+            'columns' => [
+                [
+                    'attribute' => 'PoID',
+                    'label' => 'MmID'
+                ],
+                [
+                   'attribute' => 'Position',
+                    'label' => 'Position' 
+                ],
+                ]
+                
+        ]);
+        ?>
+    </div>
     <code><?= __FILE__ ?></code>
+    <?=abbreDate5(date('Y-m-d'));?>
 </div>
