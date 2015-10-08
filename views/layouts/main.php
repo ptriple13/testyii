@@ -2,7 +2,8 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-
+//include '../../config/thai_date.php';
+require(__DIR__ . '/config/thai_date.php');
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
