@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\data\ArrayDataProvider;
 
 class SiteController extends Controller
 {
@@ -48,7 +49,7 @@ class SiteController extends Controller
     }
 
     public function actionIndex()
-    {
+    {   
         return $this->render('index');
     }
 
@@ -88,7 +89,26 @@ class SiteController extends Controller
     }
 
     public function actionAbout()
-    {
+    {   
         return $this->render('about');
+    }
+    public function actionList()
+    {
+        $qMmID = Yii::$app->db_web->createCommand('SELECT * FROM tbl_mss')->queryAll();
+        $qPoID = Yii::$app->db_ums->createCommand('SELECT * FROM tbl_position')->queryAll();
+        
+        $rMmID = new ArrayDataProvider([
+            'allModels' => $qMmID,
+            'pagination'=>FALSE
+        ]);
+        $rPoID = new ArrayDataProvider([
+            'allModels' => $qPoID,
+            'pagination'=>FALSE
+        ]);
+        
+        return $this->render('list', [
+            'rMmID' => $rMmID,
+            'rPoID' => $rPoID,
+        ]);
     }
 }

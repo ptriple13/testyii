@@ -37,7 +37,8 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
+        'db_web' => require(__DIR__ . '/db_web.php'),
+        'db_ums' => require(__DIR__ . '/db_ums.php'),
     ],
     'params' => $params,
 ];
