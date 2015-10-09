@@ -1,4 +1,4 @@
 # testyii
-git commit
-got pull
-git push
+git>commit<br/>
+got>remote>pull<br/>
+git>remote>push<br/>
