@@ -71,6 +71,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ]);
         ?>
     </div>
+    <?=$thDate;?>
     <code><?= __FILE__ ?></code>
-    <?=abbreDate5(date('Y-m-d'));?>
 </div>

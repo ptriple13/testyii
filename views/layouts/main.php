@@ -2,8 +2,7 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-//include '../../config/thai_date.php';
-require(__DIR__ . '/config/thai_date.php');
+
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -29,7 +28,7 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'RH2',
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandUrl' => ['/site/index'], //Yii::$app->homeUrl
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],

@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use yii\data\ArrayDataProvider;
+include '../config/thai_date.php';
 
 class SiteController extends Controller
 {
@@ -96,7 +97,6 @@ class SiteController extends Controller
     {
         $qMmID = Yii::$app->db_web->createCommand('SELECT * FROM tbl_mss')->queryAll();
         $qPoID = Yii::$app->db_ums->createCommand('SELECT * FROM tbl_position')->queryAll();
-        
         $rMmID = new ArrayDataProvider([
             'allModels' => $qMmID,
             'pagination'=>FALSE
@@ -106,9 +106,11 @@ class SiteController extends Controller
             'pagination'=>FALSE
         ]);
         
+        $thDate = 'ข้อมูล ณ วันที่ '.abbreDate(date('Y-m-d',strtotime('-3 day')));
         return $this->render('list', [
             'rMmID' => $rMmID,
             'rPoID' => $rPoID,
+            'thDate' => $thDate,
         ]);
     }
 }
